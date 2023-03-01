@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: SQL2022
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Wingplus*123"
+    ports:
+      - "1433:1433"
+    hostname: SQL2022
+    volumes:
+      - sql_volume:containerPath:ro
+
+volumes:
+  sql_volume:
+    name: sql_volume

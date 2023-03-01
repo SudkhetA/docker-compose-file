@@ -1,0 +1,30 @@
+services:
+  db:
+    container_name: pg_container
+    image: postgres:TH
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      LANG: "th_TH.utf8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_volumes:containerPath
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "sudkhet@wingplus.co.th"
+      PGADMIN_DEFAULT_PASSWORD: "123456"
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin4_volumes:containerPath
+
+volumes:
+  pg_volumes:
+    name: pg_volumes
+  pgadmin4_volumes:
+    name: pgadmin4_volumes
