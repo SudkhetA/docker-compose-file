@@ -9,11 +9,7 @@ services:
       - "1433:1433"
     hostname: SQL2022
     volumes:
-<<<<<<< HEAD
       - sql_volume:/var/opt/mssql
-=======
-      - sql_volume:containerPath
->>>>>>> refs/remotes/origin/main
 
 volumes:
   sql_volume:
